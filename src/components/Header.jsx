@@ -72,7 +72,7 @@ const Header = () => {
     },
   ];
   return (
-    <div className="w-full h-screen relative overflow-hidden bg-black">
+    <div className="w-full h-svh relative overflow-hidden bg-black">
       <div className="content py-10 sm:px-10 px-5 w-full flex flex-col relative h-auto z-2">
         <div className="w-full h-auto flex lg:flex-row flex-col justify-between xl:items-center uppercase text-white mt-10">
           <h1 className="z-3 relative font-main 2xl:text-[14rem] sm:text-[10rem] text-8xl leading-[85%] left-[-0.5%]">
