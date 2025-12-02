@@ -7,7 +7,10 @@ const Menu = () => {
     <nav className="w-full h-[60px] flex items-center justify-between fixed inset-0 sm:px-10 px-5 z-10">
       <div className="w-full h-full flex items-center justify-start gap-2 font-secondary font-light text-white/85">
         <button className="py-2 h-10 px-4 flex items-center justify-center bg-white/30 backdrop-blur-lg rounded-[10px]">
-          <span className="lg:block hidden">Free consultation</span><span className="lg:hidden block"><FaChalkboardUser size={18} /></span>
+          <span className="lg:block hidden">Free consultation</span>
+          <span className="lg:hidden block">
+            <FaChalkboardUser size={18} />
+          </span>
         </button>
         <Link
           href={"mailto:studio@elevengen.com"}
@@ -42,8 +45,8 @@ const Menu = () => {
 
       <div className="w-full h-full flex items-center justify-end">
         <div className="items-center gap-6 font-secondary text-white/85 lg:flex hidden">
-          <span>Home</span>
           <span>About</span>
+          <span>Services</span>
           <span>Projects</span>
           <span>Contact</span>
         </div>
