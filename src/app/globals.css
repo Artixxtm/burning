@@ -105,3 +105,16 @@ body {
     font-size: 0.875rem;
   }
 }
+
+.gridC {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+  grid-column-gap: 5vw;
+  grid-row-gap: 5vw;
+}
+
+.grid__column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
