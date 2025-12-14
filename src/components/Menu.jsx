@@ -54,6 +54,8 @@ const Menu = () => {
           <span className="font-secondary text-white/85">MENU</span>
         </button>
       </div>
+
+      <div className="backdrop"></div>
     </nav>
   );
 };
