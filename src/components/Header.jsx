@@ -155,7 +155,7 @@ const Header = () => {
         ))}
       </div>
 
-      <div className="w-full h-full absolute inset-0 z-2 bg-linear-to-t from-black to-40% to-transparent pointer-events-none"></div>
+      <div className="w-full h-full absolute inset-0 -bottom-px z-2 bg-linear-to-t from-black to-40% to-transparent pointer-events-none"></div>
       <div className="vignette"></div>
 
       <ParallaxImage
