@@ -104,7 +104,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="w-full h-svh relative sm:px-10 px-5 services-content overflow-hidden">
+    <div className="w-full h-screen relative sm:px-10 px-5 services-content overflow-hidden">
       <div className="w-max h-full flex justify-center items-center sm:gap-10 gap-5 relative z-1 horizontalSection sm:pr-10 p-0">
         <div className="sm:w-[calc(100vw-80px)] w-[calc(100vw-40px)] h-auto flex items-center justify-center">
           <div className="w-auto h-auto inline-flex items-start gap-3">
