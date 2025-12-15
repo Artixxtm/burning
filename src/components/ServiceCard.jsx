@@ -36,7 +36,11 @@ const ServiceCard = ({ data, index }) => {
             </div>
 
             <div className="w-auto h-auto relative sm:mr-10">
-              <button className={`sm:w-[120px] sm:h-[120px] flex items-center justify-center bg-black hover:bg-[#ff3605] transition-[background-color,scale] duration-250 sm:rounded-3xl rounded-2xl font-secondary font-medium hover:scale-110 active:scale-90 sm:py-5 sm:px-5 py-2.5 px-5 ${index % 2 ? "sm:-rotate-6" : "sm:rotate-6"} cursor-pointer`}>
+              <button
+                className={`sm:w-[120px] sm:h-[120px] flex items-center justify-center bg-black hover:bg-[#ff3605] transition-[background-color,scale] duration-250 sm:rounded-3xl rounded-2xl font-secondary font-medium hover:scale-110 active:scale-90 sm:py-5 sm:px-5 py-2.5 px-5 ${
+                  index % 2 ? "sm:-rotate-6" : "sm:rotate-6"
+                } cursor-pointer`}
+              >
                 Talk with an Expert
               </button>
             </div>

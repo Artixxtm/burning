@@ -125,7 +125,7 @@ const Services = () => {
       <div className="w-full h-full absolute inset-0 -top-px z-2 bg-linear-to-b from-black to-10% to-transparent pointer-events-none"></div>
 
       <div
-        className={`w-full h-svh absolute top-1/2 left-1/2 -translate-1/2 flex justify-start items-end z-[-1]`}
+        className={`w-full h-full absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center z-[-1]`}
         ref={vidContainer}
       >
         <video
