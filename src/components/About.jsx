@@ -123,7 +123,7 @@ const About = () => {
                 />
               </div>
               <div className="w-full xl:h-[200px] h-[150px] rounded-[10px] py-10 lg:px-10 px-5 bg-white/10 backdrop-blur-xl flex justify-center items-center">
-                <span className="font-main xl:text-7xl md:text-5xl text-3xl uppercase">
+                <span className="font-main xl:text-7xl md:text-5xl text-3xl uppercase text-center">
                   <span className="text-[#ff3605] font-main">A</span>nd more
                   <span className="text-[#ff3605] font-main">..</span>
                 </span>

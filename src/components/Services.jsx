@@ -28,9 +28,9 @@ const Services = () => {
     {
       title: "Web Apps",
       description:
-        "We design and develop powerful web applications that go beyond functionality. Our apps are scalable, secure, and performance-driven. Built to streamline workflows, engage users, and turn complex ideas into seamless digital products.",
+        "We design and develop powerful web applications beyond functionality. Scalable, secure, and performance-driven. Built to streamline workflows, engage users, and turn complex ideas into seamless products.",
       offer: [
-        "Custom Application Architecture",
+        "Custom App Architecture",
         "Scalable & Secure",
         "High Performance",
         "Intuitive UX/UI",

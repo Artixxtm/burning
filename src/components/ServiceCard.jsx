@@ -5,9 +5,9 @@ const ServiceCard = ({ data, index }) => {
     <div
       className={`sm:w-auto w-[calc(100vw-40px)] h-auto flex items-center justify-center`}
     >
-      <div className="md:w-[800px] w-full overflow-hidden h-[60vh] bg-white backdrop-blur-lg rounded-[10px] flex flex-col justify-between gap-10 relative">
-        <div className="w-full h-auto gap-4 px-5 pt-5">
-          <div className="w-full h-auto flex justify-between items-center border-b-2 border-transparent [border-image:repeating-linear-gradient(to_right,black_0,black_15px,transparent_15px,transparent_30px)_1] pb-5">
+      <div className="md:w-[800px] w-full overflow-hidden sm:h-[60vh] bg-white backdrop-blur-lg rounded-[10px] flex flex-col justify-between sm:gap-10 gap-5 relative">
+        <div className="w-full h-auto gap-4 sm:px-5 px-2.5 sm:pt-5 pt-2.5">
+          <div className="w-full h-auto flex justify-between items-center border-b-2 border-transparent [border-image:repeating-linear-gradient(to_right,black_0,black_15px,transparent_15px,transparent_30px)_1] sm:pb-5 pb-2.5">
             <h3 className="font-main xl:text-5xl text-3xl uppercase text-black">
               {data.title}
             </h3>
@@ -37,7 +37,7 @@ const ServiceCard = ({ data, index }) => {
 
             <div className="w-auto h-auto relative sm:mr-10">
               <button
-                className={`sm:w-[120px] sm:h-[120px] flex items-center justify-center bg-black hover:bg-[#ff3605] transition-[background-color,scale] duration-250 sm:rounded-3xl rounded-2xl font-secondary font-medium hover:scale-110 active:scale-90 sm:py-5 sm:px-5 py-2.5 px-5 ${
+                className={`sm:w-[120px] sm:h-[120px] flex shadow-xl items-center justify-center bg-black hover:bg-[#ff3605] transition-[background-color,scale] duration-250 sm:rounded-3xl rounded-2xl font-secondary font-medium hover:scale-110 active:scale-90 sm:py-5 sm:px-5 py-2.5 px-5 ${
                   index % 2 ? "sm:-rotate-6" : "sm:rotate-6"
                 } cursor-pointer`}
               >
@@ -47,8 +47,8 @@ const ServiceCard = ({ data, index }) => {
           </div>
         </div>
 
-        <div className="w-full h-auto gap-4 px-5 pb-5">
-          <div className="w-full h-auto border-t-2 border-transparent [border-image:repeating-linear-gradient(to_right,black_0,black_15px,transparent_15px,transparent_30px)_1] flex justify-between items-center pt-5">
+        <div className="w-full h-auto gap-4 sm:px-5 px-2.5 sm:pb-5 pb-2.5">
+          <div className="w-full h-auto border-t-2 border-transparent [border-image:repeating-linear-gradient(to_right,black_0,black_15px,transparent_15px,transparent_30px)_1] flex justify-between items-center sm:pt-5 pt-2.5">
             <h3 className="font-secondary font-medium xl:text-5xl text-3xl uppercase text-black">
               0{index + 1}
             </h3>
