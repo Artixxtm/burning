@@ -1,7 +1,9 @@
+'use client'
+
 import "./StarBorder.css";
 
 const StarBorder = ({
-  as: Component = "button",
+  as: Component = "div",
   className = "",
   color = "white",
   speed = "7s",
@@ -10,7 +12,7 @@ const StarBorder = ({
   ...rest
 }) => {
   return (
-    <Component
+    <div
       className={`star-border-container ${className}`}
       style={{
         padding: `${thickness}px 0`,
@@ -33,7 +35,7 @@ const StarBorder = ({
         }}
       ></div>
       <div className="inner-content bg-white/30 px-6 py-3 rounded-[10px] font-secondary backdrop-blur-lg relative z-1">{children}</div>
-    </Component>
+    </div>
   );
 };
 

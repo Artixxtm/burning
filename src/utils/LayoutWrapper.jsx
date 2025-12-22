@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ReactLenis } from "lenis/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dynamic from "next/dynamic";
 
 import "lenis/dist/lenis.css";
@@ -22,6 +23,8 @@ export default function LayoutWrapper({ children }) {
     }
 
     rafId = requestAnimationFrame(raf);
+
+    lenisRef.current?.lenis?.on("scroll", ScrollTrigger.update);
 
     return () => cancelAnimationFrame(rafId);
   }, []);

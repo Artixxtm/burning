@@ -59,7 +59,8 @@ const About = () => {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="w-full h-full object-contain"
+                  draggable={false}
+                  className="w-full h-full object-contain pointer-events-none"
                 />
               </div>
               <div className="w-full xl:h-[200px] h-[150px] rounded-[10px] py-10 lg:px-10 px-5 bg-white/10 flex justify-center items-center">
@@ -69,7 +70,8 @@ const About = () => {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="w-full h-full object-contain"
+                  draggable={false}
+                  className="w-full h-full object-contain pointer-events-none"
                 />
               </div>
             </div>
@@ -89,17 +91,19 @@ const About = () => {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="w-full h-full object-contain"
+                  draggable={false}
+                  className="w-full h-full object-contain pointer-events-none"
                 />
               </div>
               <div className="w-full xl:h-[200px] h-[150px] rounded-[10px] py-13 lg:px-10 px-5 bg-white/10 backdrop-blur-xl flex justify-center items-center">
                 <Image
                   src={"/trust/skytones.png"}
-                  alt="Codeum Games"
+                  alt="Sky Tones"
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="w-full h-full object-contain"
+                  draggable={false}
+                  className="w-full h-full object-contain pointer-events-none"
                 />
               </div>
             </div>
@@ -119,7 +123,8 @@ const About = () => {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="w-full h-full object-contain"
+                  draggable={false}
+                  className="w-full h-full object-contain pointer-events-none"
                 />
               </div>
               <div className="w-full xl:h-[200px] h-[150px] rounded-[10px] py-10 lg:px-10 px-5 bg-white/10 backdrop-blur-xl flex justify-center items-center">

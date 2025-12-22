@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Model from "./Model";
 import { Canvas } from "@react-three/fiber";
 import {
@@ -10,10 +10,11 @@ import {
   AdaptiveDpr,
 } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { motion, useReducedMotion } from "framer-motion";
 import StarBorder from "./StarBorder/StarBorder";
 import GradientText from "./GradientText/GradientText";
 import ParallaxImage from "./ParallaxImage";
-
+import { useLenis } from "lenis/react";
 import {
   FaLinkedinIn,
   FaInstagram,
@@ -22,9 +23,32 @@ import {
 } from "react-icons/fa6";
 import Link from "next/link";
 import useResponsive from "@/hooks/useResponsive";
+import dynamic from "next/dynamic";
+
+const GooeyText = dynamic(() => import("./GooeyText"), { ssr: false });
 
 const Header = () => {
   const { isMobile } = useResponsive();
+  const lenis = useLenis();
+  const shouldReduceMotion = useReducedMotion();
+
+  const [animationComplete, setAnimationComplete] = useState(false);
+
+  useEffect(() => {
+    if (!animationComplete) {
+      document.body.style.overflow = "hidden";
+      lenis?.stop();
+    } else {
+      document.body.style.overflow = "";
+      lenis?.start();
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [animationComplete, lenis]);
+
+  const handleAnimationComplete = () => setAnimationComplete(true);
 
   const social = [
     {
@@ -71,23 +95,62 @@ const Header = () => {
       color: "white",
     },
   ];
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const fadeLeft = {
+    hidden: { opacity: 0, x: -40 },
+    show: {
+      opacity: 1,
+      x: 0,
+    },
+  };
+
+  const fadeRight = {
+    hidden: { opacity: 0, x: 40 },
+    show: {
+      opacity: 1,
+      x: 0,
+    },
+  };
+
   return (
     <div className="w-full h-svh relative overflow-hidden bg-black">
       <div className="content py-10 sm:px-10 px-5 w-full flex flex-col relative h-auto z-2">
-        <div className="w-full h-auto flex lg:flex-row flex-col justify-between xl:items-center uppercase text-white mt-10">
-          <h1 className="z-3 relative font-main 2xl:text-[14rem] sm:text-[10rem] text-8xl leading-[85%] left-[-0.5%]">
-            Burning
-          </h1>
-          <h1 className="z-3 relative font-main 2xl:text-[14rem] sm:text-[10rem] text-8xl leading-[85%] xl:ml-0 ml-auto">
-            Studio
-            <span className="font-sans sm:text-5xl text-3xl relative 2xl:-top-30 sm:-top-18 -top-12">
-              ®
-            </span>
-          </h1>
+        <div className="w-full h-auto flex lg:flex-row flex-col justify-between xl:items-center uppercase text-white mt-10 2xl:min-h-[190px] lg:min-h-[136px] sm:min-h-[272px] min-h-[163px]">
+          <GooeyText
+            as="h1"
+            text="Burning"
+            className="z-3 relative font-main 2xl:text-[14rem] sm:text-[10rem] text-8xl leading-[85%] left-[-0.5%] opacity-0"
+          />
+          <div className="relative w-auto h-auto inline-flex items-center">
+            <GooeyText
+              as="h1"
+              text="Studio"
+              className="z-3 relative font-main 2xl:text-[14rem] sm:text-[10rem] text-8xl leading-[85%] xl:ml-0 ml-auto"
+            />
+            <GooeyText
+              as="span"
+              text="®"
+              className="font-sans sm:text-5xl text-3xl relative -top-12"
+            />
+          </div>
         </div>
 
         <div className="lg:w-full w-fit h-auto flex lg:flex-row flex-col lg:justify-between justify-end lg:items-center gap-7.5 text-white/65 relative mt-7.5">
-          <p className="font-secondary font-regural sm:text-xl! MobileResText leading-[135%] opacity-90 text-left">
+          <motion.p
+            variants={fadeLeft}
+            initial="hidden"
+            animate="show"
+            transition={{ delay: 0.9, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            className="font-secondary font-regural sm:text-xl! MobileResText leading-[135%] opacity-90 text-left"
+          >
             <span className="font-medium text-white">Web studio</span> that
             builds smart, sales-driven
             <br />
@@ -98,18 +161,32 @@ const Header = () => {
             <br />
             and close more deals
             <br />
-          </p>
+          </motion.p>
 
-          <StarBorder>
-            <GradientText className="sm:text-base text-sm">
-              Get a free consultation
-            </GradientText>
-          </StarBorder>
+          <motion.button
+            variants={fadeRight}
+            initial="hidden"
+            animate="show"
+            transition={{ delay: 0.9, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            className="w-fit overflow-hidden relative"
+          >
+            <StarBorder>
+              <GradientText className="sm:text-base text-sm">
+                Get a free consultation
+              </GradientText>
+            </StarBorder>
+          </motion.button>
         </div>
       </div>
 
       {/* socials */}
-      <div className="absolute left-10 bottom-10 w-auto h-auto z-3 lg:flex hidden justify-between gap-4.5 items-center py-2.5">
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        animate="show"
+        transition={{ delay: 1.1, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+        className="absolute left-10 bottom-10 w-auto h-auto z-3 lg:flex hidden justify-between gap-4.5 items-center py-2.5"
+      >
         <div className="w-full h-full flex items-center gap-2 rounded-[10px]">
           {social.map((item, index) => (
             <Link
@@ -122,9 +199,16 @@ const Header = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <div className="absolute lg:right-10 sm:bottom-10 bottom-5 w-full lg:max-w-[420px] h-[130px] z-3 rounded-[20px] flex justify-between gap-2.5 items-center sm:py-2.5 py-4 lg:px-0 sm:px-10 px-5">
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        animate="show"
+        transition={{ delay: 1.2, duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+        onAnimationComplete={handleAnimationComplete}
+        className="absolute lg:right-10 sm:bottom-10 bottom-5 w-full lg:max-w-[420px] h-[130px] z-3 rounded-[20px] flex justify-between gap-2.5 items-center sm:py-2.5 py-4 lg:px-0 sm:px-10 px-5"
+      >
         {stats.map((item, index) => (
           <div
             className="w-full h-full rounded-[10px] flex flex-col items-center justify-center gap-1"
@@ -153,13 +237,13 @@ const Header = () => {
             </span>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       <div className="w-full h-full absolute inset-0 -bottom-px z-2 bg-linear-to-t from-black to-40% to-transparent pointer-events-none"></div>
       <div className="vignette"></div>
 
       <ParallaxImage
-        src={"/bg-2.png"}
+        src={"/bg-2c.png"}
         alt={"bg"}
         width={0}
         height={0}
@@ -184,10 +268,12 @@ const Header = () => {
         <Canvas dpr={[1, 1.2]} camera={{ position: [0, 0, 9], fov: 40 }}>
           <PerformanceMonitor onDecline={() => console.log("FPS Down")} />
           <AdaptiveDpr pixelated />
-          
-          <ambientLight intensity={isMobile ? 0.35 : 0.5} />
-          <directionalLight position={[5, 5, 5]} intensity={isMobile ? 1.2 : 2} />
 
+          <ambientLight intensity={isMobile ? 0.35 : 0.5} />
+          <directionalLight
+            position={[5, 5, 5]}
+            intensity={isMobile ? 1.2 : 2}
+          />
 
           <Suspense fallback={null}>
             <Model name={"burned_sword"} />

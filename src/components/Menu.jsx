@@ -1,10 +1,29 @@
 import Link from "next/link";
 import React from "react";
 import { FaEnvelope, FaChalkboardUser } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const Menu = () => {
+  const fadeDown = {
+    hidden: { opacity: 0, y: -30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        ease: [0.23, 1, 0.32, 1],
+        duration: 0.8,
+        delay: 0.6,
+      },
+    },
+  };
+
   return (
-    <nav className="w-full h-[60px] flex items-center justify-between fixed inset-0 sm:px-10 px-5 z-10">
+    <motion.nav
+      variants={fadeDown}
+      initial="hidden"
+      animate="show"
+      className="w-full h-[60px] flex items-center justify-between fixed inset-0 sm:px-10 px-5 z-10"
+    >
       <div className="w-full h-full flex items-center justify-start gap-2 font-secondary font-light text-white/85">
         <button className="py-2 h-10 px-4 flex items-center justify-center bg-white/30 backdrop-blur-lg rounded-[10px]">
           <span className="lg:block hidden">Free consultation</span>
@@ -56,7 +75,7 @@ const Menu = () => {
       </div>
 
       <div className="backdrop"></div>
-    </nav>
+    </motion.nav>
   );
 };
 
