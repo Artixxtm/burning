@@ -15,15 +15,10 @@ import StarBorder from "./StarBorder/StarBorder";
 import GradientText from "./GradientText/GradientText";
 import ParallaxImage from "./ParallaxImage";
 import { useLenis } from "lenis/react";
-import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaBehance,
-  FaXTwitter,
-} from "react-icons/fa6";
 import Link from "next/link";
 import useResponsive from "@/hooks/useResponsive";
 import dynamic from "next/dynamic";
+import { social } from "@/utils";
 
 const GooeyText = dynamic(() => import("./GooeyText"), { ssr: false });
 
@@ -50,28 +45,6 @@ const Header = () => {
 
   const handleAnimationComplete = () => setAnimationComplete(true);
 
-  const social = [
-    {
-      name: "LinkedIn",
-      icon: <FaLinkedinIn />,
-      link: "#",
-    },
-    {
-      name: "Instagram",
-      icon: <FaInstagram />,
-      link: "#",
-    },
-    {
-      name: "Behance",
-      icon: <FaBehance />,
-      link: "#",
-    },
-    {
-      name: "Twitter",
-      icon: <FaXTwitter />,
-      link: "#",
-    },
-  ];
   const stats = [
     {
       title: "Projects",
@@ -257,14 +230,6 @@ const Header = () => {
       <div
         className={`w-full h-svh absolute top-1/2 left-1/2 -translate-1/2 flex justify-center items-center`}
       >
-        {/* <video
-          src="vid.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="object-contain"
-        ></video> */}
         <Canvas dpr={[1, 1.2]} camera={{ position: [0, 0, 9], fov: 40 }}>
           <PerformanceMonitor onDecline={() => console.log("FPS Down")} />
           <AdaptiveDpr pixelated />
