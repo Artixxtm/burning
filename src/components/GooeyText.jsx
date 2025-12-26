@@ -13,7 +13,7 @@ export default function GooeyText({
   duration = 1.2,
   blurStart = 35,
   triggerStart = "top 85%",
-  keepFilter = false, // ← оставить gooey после анимации
+  keepFilter = false,
 }) {
   const textRef = useRef(null);
   const filterId = useId().replace(/:/g, "");
@@ -28,7 +28,6 @@ export default function GooeyText({
 
     if (!feBlur) return;
 
-    // prefers-reduced-motion
     if (
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {

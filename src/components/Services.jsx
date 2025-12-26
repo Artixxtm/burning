@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useResponsive from "@/hooks/useResponsive";
 import ServiceCard from "./ServiceCard";
+import GooeyText from "./GooeyText";
 
 const Services = () => {
   const bgRef = useRef();
@@ -108,9 +109,11 @@ const Services = () => {
       <div className="w-max h-full flex justify-center items-center sm:gap-10 gap-5 relative z-1 horizontalSection sm:pr-10 p-0">
         <div className="sm:w-[calc(100vw-80px)] w-[calc(100vw-40px)] h-auto flex items-center justify-center">
           <div className="w-auto h-auto inline-flex items-start gap-3">
-            <h2 className="font-main uppercase 2xl:text-[16rem] md:text-[10rem] sm:text-8xl text-7xl">
-              Services
-            </h2>
+            <GooeyText
+              as="h2"
+              text="Services"
+              className="font-main uppercase 2xl:text-[16rem] md:text-[10rem] sm:text-8xl text-7xl"
+            />
             <span className="font-secondary md:text-3xl sm:text-xl opacity-75 relative md:top-8 top-1">
               [{data.length}]
             </span>

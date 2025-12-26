@@ -1,10 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Copy from "./Copy";
 import Image from "next/image";
+import { useAnimation, useInView, motion } from "framer-motion";
+
+const blockVariants = {
+  hidden: { opacity: 0, y: 120, filter: "blur(40px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+      delay: 0.4
+    },
+  },
+};
 
 const About = () => {
+  const controls = useAnimation();
+  const ref = useRef(null);
+  const inView = useInView(ref, { threshold: 0.5 });
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (inView && !hasAnimated) {
+      controls.start("visible");
+      setHasAnimated(true);
+    } else {
+      controls.start("hidden");
+      setHasAnimated(false);
+    }
+  }, [inView, controls]);
+
   return (
     <>
       <div className="w-full h-screen relative flex flex-col items-center justify-center sm:px-10 px-5 overflow-hidden">
@@ -35,7 +65,13 @@ const About = () => {
         </div>
       </div>
       <div className="w-full lg:min-h-[75vh] h-auto bg-black relative flex flex-col items-center justify-center sm:px-10 px-5 overflow-hidden">
-        <div className="w-full h-auto flex lg:flex-row flex-col justify-between items-start lg:gap-4 gap-2">
+        <motion.div
+          className="w-full h-auto flex lg:flex-row flex-col justify-between items-start lg:gap-4 gap-2"
+          ref={ref}
+          variants={blockVariants}
+          initial="hidden"
+          animate={controls}
+        >
           <div className="w-full h-auto relative gap-4 flex flex-col">
             <div className="w-full h-auto flex items-center lg:justify-start justify-between">
               <span className="font-secondary text-xl tracking-wider font-medium lg:block hidden">
@@ -135,7 +171,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );

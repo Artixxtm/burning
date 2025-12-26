@@ -49,6 +49,7 @@ const Contact = () => {
           <GooeyText
             as="h2"
             text={"Cont"}
+            triggerStart="start 95%"
             className="w-auto font-main uppercase 2xl:text-[16rem] md:text-[10rem] sm:text-8xl text-7xl"
           />
           <video
@@ -62,6 +63,7 @@ const Contact = () => {
           <GooeyText
             as="h2"
             text={"Acts"}
+            triggerStart="start 95%"
             className="w-auto font-main uppercase 2xl:text-[16rem] md:text-[10rem] sm:text-8xl text-7xl"
           />
         </div>

@@ -111,7 +111,7 @@ const Header = () => {
             <GooeyText
               as="span"
               text="®"
-              className="font-sans sm:text-5xl text-3xl relative -top-12"
+              className="font-sans sm:text-5xl text-3xl relative 2xl:-top-12 sm:-top-7.5 -top-4"
             />
           </div>
         </div>
